@@ -3,25 +3,28 @@
   "version": "1.0.0",
   "type": "module",
   "bin": {
-    "mcp-cursor": "./build/test/cursor-tool.js"
+    "cursor-macos-mcp": "./build/cursor-macos-mcp.js"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node build/index.js",
-    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc && chmod +x build/cursor-macos-mcp.js",
+    "start": "node build/cursor-macos-mcp.js",
+    "dev": "ts-node-dev --respawn src/cursor-macos-mcp.ts",
     "dev:inspect": "ts-node-dev --respawn src/index.ts",
-    "cursor": "node build/test/cursor-tool.js"
+    "cursor": "node build/test/cursor-tool.js",
+    "test:macos": "node build/test/macos-integration.test.js"
   },
   "files": [
     "build"
   ],
   "dependencies": {
+    "@jitsi/robotjs": "^0.6.13",
     "@modelcontextprotocol/sdk": "^1.1.1",
+    "active-win": "^8.1.1",
     "clipboardy": "^3.0.0",
     "dotenv": "^16.4.7",
     "fs-extra": "^11.2.0",
     "node-window-manager": "^2.2.4",
-    "robotjs": "^0.6.0",
+    "run-applescript": "^6.1.0",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"
   },

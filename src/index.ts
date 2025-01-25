@@ -11,7 +11,7 @@ import { CursorInstanceManagerImpl } from './managers/CursorInstanceManager.js'
 import { CursorToolHandler } from './handlers/CursorToolHandler.js'
 import { CursorTools } from './tools/cursor-tools.js'
 
-async function main() {
+export async function main() {
     const server = new Server(
         {
             name: 'cursor-mcp',

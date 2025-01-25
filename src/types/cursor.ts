@@ -1,13 +1,13 @@
 import { ChildProcess } from 'child_process'
-import type { Window as WindowManager } from 'node-window-manager'
+import { IMacOSWindow } from '../services/MacOSApiService.js'
 
 // Alias the node-window-manager Window type
-export type Window = WindowManager
+export type Window = IMacOSWindow
 
 export interface CursorInstance {
     id: string               // UUID of the instance
     process: ChildProcess    // Reference to the spawned process
-    window?: Window         // Window object from node-window-manager
+    window?: IMacOSWindow     // Window object from node-window-manager
     workspacePath?: string   // Optional workspace path this instance was opened with
     createdAt: Date         // When this instance was created
     isActive: boolean       // Whether this instance is still running

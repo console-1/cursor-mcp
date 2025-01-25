@@ -1,4 +1,5 @@
-import robot from 'robotjs'
+// Comment out robotjs imports and usage
+import robot from '@jitsi/robotjs'
 import { spawn } from 'child_process'
 import path from 'path'
 import { windowManager } from 'node-window-manager'
@@ -95,7 +96,7 @@ async function executeCommand(naturalCommand: string) {
         }
 
         // Parse the natural language command
-        const commandRequest = parseNaturalLanguage(naturalCommand)
+        const commandRequest = parseNaturalLanguage(naturalCommand);
         if (!commandRequest) {
             throw new Error(`Could not understand command: ${naturalCommand}`)
         }

@@ -4,7 +4,7 @@
 
 A Model Context Protocol (MCP) implementation that enables seamless integration between Claude AI and desktop applications through Cursor IDE. This tool serves as a bridge between Claude's capabilities and desktop software, allowing for enhanced AI-powered development workflows.
 
-<a href="https://glama.ai/mcp/servers/4fg1gxbcex"><img width="380" height="200" src="https://glama.ai/mcp/servers/4fg1gxbcex/badge" alt="Cursor Server MCP server" /></a>
+[![Cursor Server MCP server](https://glama.ai/mcp/servers/4fg1gxbcex/badge)](https://glama.ai/mcp/servers/4fg1gxbcex)
 
 ## Quick Start (Windows)
 
@@ -14,6 +14,7 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
    - Windows 10 or higher
 
 2. **Installation**
+
    ```bash
    # Install globally
    npm install -g mcp-cursor
@@ -26,6 +27,7 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
 
 3. **Configuration**
    - Create a `.env` file in your project root:
+
      ```bash
      # Windows path example
      DEFAULT_WORKSPACE_PATH=C:/Users/YourUsername/Documents/cursor-workspaces
@@ -33,6 +35,7 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
 
 4. **Add to Claude's MCP Configuration**
    Add the following to your Claude configuration:
+
    ```json
    {
      "name": "cursor",
@@ -45,6 +48,7 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
    ```
 
 5. **Start the Server**
+
    ```bash
    # If installed globally
    mcp-cursor
@@ -54,6 +58,7 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
    ```
 
 ## Features
+
 - Real-time AI assistance in your development workflow
 - Context-aware code suggestions and completions
 - Seamless integration with Cursor IDE
@@ -62,7 +67,9 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
 ## Detailed Setup
 
 ### Local Development Setup
+
 1. Clone and install:
+
    ```bash
    git clone https://github.com/yourusername/cursor-mcp.git
    cd cursor-mcp
@@ -70,15 +77,19 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
    ```
 
 2. Create environment config:
+
    ```bash
    cp .env.example .env
    ```
+
    Edit `.env` and set your workspace path:
+
    ```bash
    DEFAULT_WORKSPACE_PATH=C:/Users/YourUsername/Documents/cursor-workspaces
    ```
 
 3. Build and run:
+
    ```bash
    # Development mode with hot reload
    npm run dev
@@ -101,13 +112,15 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
 
 3. **Node Version Issues**
    - Use `nvm` to switch to Node.js v18 or higher:
+
      ```bash
      nvm install 18
      nvm use 18
      ```
 
 ## Project Structure
-```
+
+```text
 cursor-mcp/
 ├── src/           # Source code
 │   ├── services/  # Core services
@@ -118,11 +131,13 @@ cursor-mcp/
 ```
 
 ## Scripts
+
 - `npm run build` - Compile TypeScript
 - `npm start` - Run production server
 - `npm run dev` - Start development server with hot-reload
 
 ## Contributing
+
 1. Fork the repository
 2. Create feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit changes (`git commit -m 'Add feature'`)
@@ -130,11 +145,13 @@ cursor-mcp/
 5. Open a Pull Request
 
 ## License
+
 MIT License - see LICENSE file for details.
 
 ## Support
+
 For support:
+
 - Open an issue in the GitHub repository
 - Join our [Discord community](https://discord.gg/yourcommunity)
 - Check the [FAQ](https://github.com/yourusername/cursor-mcp/wiki/FAQ)
-
