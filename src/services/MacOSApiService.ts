@@ -48,11 +48,13 @@ export class MacOSApiService {
         accessibility: boolean;
         fullDisk: boolean;
         automation: boolean;
+        screenRecording: boolean;
     }> {
         return {
             accessibility: await this.checkAccessibilityPermissions(),
             fullDisk: await this.checkFullDiskAccess(),
-            automation: await this.checkAutomationPermissions()
+            automation: await this.checkAutomationPermissions(),
+            screenRecording: await this.checkScreenRecordingPermissions()
         };
     }
 
@@ -75,6 +77,11 @@ export class MacOSApiService {
         
         if (!perms.fullDisk) {
             throw new Error('Full disk access required - Enable in System Settings > Privacy & Security');
+        }
+        
+        if (!perms.screenRecording) {
+            await this.requestScreenRecordingPermissions();
+            throw new Error('Screen recording permissions required - Enable in System Settings > Privacy & Security > Screen Recording');
         }
     }
 
@@ -145,12 +152,36 @@ export class MacOSApiService {
         }
     }
 
+    private async checkScreenRecordingPermissions(): Promise<boolean> {
+        try {
+            await runAppleScript('tell application "System Events" to get name of window 1 of process "Finder"');
+            return true;
+        } catch {
+            return false;
+        }
+    }
+
     private async requestAccessibilityPermissions(): Promise<void> {
         const script = `
-            tell application "System Preferences"
+            tell application "System Settings"
                 activate
-                set current pane to pane id "com.apple.preference.security"
-                reveal anchor "Privacy_Accessibility" of pane id "com.apple.preference.security"
+                reveal anchor "Privacy_Accessibility" of pane id "com.apple.PrivacySecurity.extension"
+            end tell
+            delay 1
+            tell application "System Events"
+                tell process "System Settings"
+                    click checkbox 1 of row 1 of table 1 of scroll area 1 of group 1 of group 1 of group 2 of splitter group 1 of group 1 of window 1
+                end tell
+            end tell
+        `;
+        await runAppleScript(script);
+    }
+
+    private async requestScreenRecordingPermissions(): Promise<void> {
+        const script = `
+            tell application "System Settings"
+                activate
+                reveal anchor "ScreenRecording" of pane id "com.apple.PrivacySecurity.extension"
             end tell
         `;
         await runAppleScript(script);

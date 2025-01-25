@@ -11,28 +11,30 @@
     "dev": "ts-node-dev --respawn src/cursor-macos-mcp.ts",
     "dev:inspect": "ts-node-dev --respawn src/index.ts",
     "cursor": "node build/test/cursor-tool.js",
-    "test:macos": "node build/test/macos-integration.test.js"
+    "test": "node build/test/macos-integration.test.js"
   },
   "files": [
     "build"
   ],
   "dependencies": {
-    "@jitsi/robotjs": "^0.6.13",
     "@modelcontextprotocol/sdk": "^1.1.1",
-    "active-win": "^8.1.1",
     "clipboardy": "^3.0.0",
     "dotenv": "^16.4.7",
     "fs-extra": "^11.2.0",
-    "node-window-manager": "^2.2.4",
     "run-applescript": "^6.1.0",
+    "active-win": "^8.1.1",
+    "node-window-manager": "^2.2.4",
     "uuid": "^9.0.1",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "@jitsi/robotjs": "^1.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^20.10.0",
     "@types/uuid": "^9.0.7",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "@types/robotjs": "npm:@types/auto-robotjs@0.1.0",
+    "@jitsi/robotjs": "^1.0.0"
   }
 }

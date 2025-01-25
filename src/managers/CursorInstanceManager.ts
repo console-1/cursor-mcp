@@ -102,18 +102,20 @@ export class CursorInstanceManagerImpl implements CursorInstanceManager {
             })
 
             const checkWindow = async () => {
-                if (!instance.isActive) return
+                if (!instance.isActive) return;
 
                 try {
-                    const window = await this.macosApi.getWindowByProcessId(cursorProcess.pid!)
+                    const window = await this.macosApi.getWindowByProcessId(cursorProcess.pid!);
                     if (window) {
-                        resolve(window)
-                        return
+                        resolve(window);
+                        return;
                     }
                 } catch (error) {
-                    console.warn('Error checking for window:', error)
+                    console.warn('Error checking for window:', error);
+                    reject(error); // Propagate the error
+                    return;
                 }
-
+                
                 attempts++
                 if (attempts >= maxAttempts) {
                     reject(new Error('Failed to find Cursor window after maximum attempts. The process may have failed to start properly.'))

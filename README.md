@@ -99,24 +99,20 @@ A Model Context Protocol (MCP) implementation that enables seamless integration 
    npm start
    ```
 
-### Troubleshooting
+### Troubleshooting (macOS Specific)
 
-1. **Window Detection Issues**
-   - Ensure Cursor IDE is running
-   - Try restarting the MCP server
-   - Check if your workspace path is correct
+1. **Permission Issues**
+   - Enable Accessibility permissions in System Settings
+   - Grant Full Disk Access to Terminal
+   - Ensure Automation permissions for Cursor
 
-2. **Permission Issues**
-   - Run terminal as administrator for first-time setup
-   - Ensure proper file permissions in workspace directory
+2. **Window Management**
+   - Keep Cursor in foreground during operations
+   - Ensure stable network connection for MCP protocol
 
-3. **Node Version Issues**
-   - Use `nvm` to switch to Node.js v18 or higher:
-
-     ```bash
-     nvm install 18
-     nvm use 18
-     ```
+3. **Version Requirements**
+   - macOS 11 (Big Sur) or newer
+   - Node.js 18+
 
 ## Project Structure
 

@@ -1,6 +1,6 @@
 import { z } from "zod"
 import { CursorInstanceManagerImpl } from '../managers/CursorInstanceManager.js'
-import { VirtualKeys } from '../services/WindowsApiService.js'
+import { VirtualKeys } from '../services/MacOSApiService.js'
 import { McpError } from "@modelcontextprotocol/sdk/types.js"
 
 interface ToolDefinition {
